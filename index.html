@@ -454,7 +454,7 @@
             .top-header { flex-direction: column; gap: 0.75rem; padding: 0.6rem 1.5rem; }
             .top-header-left, .top-header-right { width: 100%; justify-content: center; }
             .language-selector { display: none; }
-            .navbar { top: 1; }
+            .navbar { top: 90px; }
             .nav-container { padding: 0 2rem; }
             .container { padding: 0 2rem; }
             .slide-content { grid-template-columns: 1fr; gap: 2rem; text-align: center; padding: 0 2rem; }
@@ -470,7 +470,7 @@
 
         @media (max-width: 768px) {
             .nav-links { 
-                position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+                position: fixed; top: 90px; right: -100%; width: 80%; max-width: 320px; height: 100vh;
                 background: white; flex-direction: column; padding: 5rem 2rem 2rem; gap: 1.5rem;
                 box-shadow: var(--shadow-xl); transition: var(--transition); align-items: flex-start; z-index: 999;
             }
