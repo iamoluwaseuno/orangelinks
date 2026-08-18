@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orange Links Energy Products - Coal, Gasoline and Gas Oil trading with 2.5M+ tonnes annually and 1B+ tonnes coal reserves.">
+    <title>Energy Products | Orange Links General Trading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35; --primary-dark: #E55A2B; --secondary: #1A1A2E; --accent: #16213E;
+            --light: #F8F9FA; --dark: #0F0F1E; --darker: #05050A; --text-primary: #2D2D2D; --text-secondary: #6B7280; --border: #E5E7EB;
+            --gradient-1: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%); --gradient-2: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08); --shadow-md: 0 8px 24px rgba(0,0,0,0.12); --shadow-lg: 0 16px 48px rgba(0,0,0,0.16); --shadow-xl: 0 24px 64px rgba(0,0,0,0.2);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); --fs-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem); --fs-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+            --fs-md: clamp(1.125rem, 1rem + 0.6vw, 1.25rem); --fs-lg: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem); --fs-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+            --fs-2xl: clamp(1.875rem, 1.5rem + 2vw, 2.5rem); --fs-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem); --fs-4xl: clamp(2.5rem, 2rem + 3vw, 4rem); --fs-5xl: clamp(3rem, 2rem + 4vw, 5rem);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--light); overflow-x: hidden; line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        .top-header { background: var(--darker); color: rgba(255,255,255,0.7); padding: 0.6rem 3rem; font-size: var(--fs-xs); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .top-header-left { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+        .top-header-left a { color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.5rem; transition: var(--transition); }
+        .top-header-left a:hover { color: var(--primary); }
+        .top-header-left i { color: var(--primary); font-size: 0.7rem; }
+        .top-header-right { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+        .top-social { display: flex; gap: 1rem; }
+        .top-social a { color: rgba(255,255,255,0.7); transition: var(--transition); }
+        .top-social a:hover { color: var(--primary); transform: translateY(-2px); }
+        .top-cta { background: rgba(255,107,53,0.1); color: var(--primary); padding: 0.4rem 1rem; border-radius: 4px; font-weight: 600; border: 1px solid rgba(255,107,53,0.3); transition: var(--transition); }
+        .top-cta:hover { background: var(--primary); color: white; }
+
+        .navbar { position: fixed; top: 40px; width: 100%; z-index: 1000; padding: 1.2rem 0; transition: var(--transition); background: transparent; }
+        .navbar.scrolled { top: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); padding: 1rem 0; box-shadow: var(--shadow-sm); }
+        .nav-container { max-width: 1440px; margin: 0 auto; padding: 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
+        .logo-icon { width: 42px; height: 42px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(255,107,53,0.4); }
+        .logo-text .brand { font-size: var(--fs-md); font-weight: 800; color: white; letter-spacing: -0.5px; line-height: 1; transition: var(--transition); }
+        .logo-text .tagline { font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; transition: var(--transition); }
+        .navbar.scrolled .logo-text .brand { color: var(--secondary); }
+        .navbar.scrolled .logo-text .tagline { color: var(--text-secondary); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,0.9); font-weight: 500; font-size: var(--fs-sm); position: relative; transition: var(--transition); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--primary); transition: var(--transition); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover { color: white; }
+        .navbar.scrolled .nav-links a { color: var(--secondary); }
+        .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--primary); }
+        .nav-cta { background: var(--gradient-1); color: white !important; padding: 0.7rem 1.75rem; border-radius: 50px; font-weight: 600; }
+        .nav-cta::after { display: none !important; }
+        .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; padding: 5px; }
+        .mobile-toggle span { width: 28px; height: 3px; background: white; border-radius: 3px; transition: var(--transition); }
+        .navbar.scrolled .mobile-toggle span { background: var(--secondary); }
+
+        .page-hero { position: relative; min-height: 500px; display: flex; align-items: center; background: var(--dark); overflow: hidden; margin-top: 40px; }
+        .page-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('img/bg.jpg'); background-size: cover; background-position: center; opacity: 0.4; }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15,15,30,0.9) 0%, rgba(15,15,30,0.6) 100%); }
+        .page-hero-content { position: relative; z-index: 2; max-width: 1440px; margin: 0 auto; padding: 6rem 3rem; width: 100%; color: white; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.75rem; font-size: var(--fs-sm); margin-bottom: 1.5rem; color: rgba(255,255,255,0.7); flex-wrap: wrap; }
+        .breadcrumb a { color: rgba(255,255,255,0.7); transition: var(--transition); }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb i { font-size: 0.7rem; color: var(--primary); }
+        .page-hero h1 { font-size: var(--fs-5xl); margin-bottom: 1rem; }
+        .page-hero h1 span { color: var(--primary); }
+        .page-hero p { font-size: var(--fs-md); max-width: 700px; opacity: 0.95; }
+
+        section { padding: 6rem 0; }
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 3rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { display: inline-block; background: rgba(255,107,53,0.1); color: var(--primary); padding: 0.5rem 1.25rem; border-radius: 50px; font-size: var(--fs-xs); font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        .section-title { font-size: var(--fs-4xl); color: var(--secondary); margin-bottom: 1rem; }
+        .section-subtitle { font-size: var(--fs-base); color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+        .stats-banner { background: var(--gradient-1); color: white; padding: 4rem 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+        .stat-item .number { font-size: var(--fs-4xl); font-weight: 800; font-family: 'Inter', sans-serif; margin-bottom: 0.5rem; }
+        .stat-item .label { font-size: var(--fs-sm); opacity: 0.95; }
+
+        .energy-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .energy-intro-image { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-xl); height: 500px; }
+        .energy-intro-image img { width: 100%; height: 100%; object-fit: cover; }
+        .energy-intro-text h2 { font-size: var(--fs-3xl); color: var(--secondary); margin-bottom: 1.5rem; }
+        .energy-intro-text h2 span { color: var(--primary); }
+        .energy-intro-text p { color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8; font-size: var(--fs-base); }
+
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .energy-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition); border: 1px solid var(--border); }
+        .energy-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+        .energy-image { height: 240px; background: var(--gradient-2); position: relative; overflow: hidden; }
+        .energy-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .energy-card:hover .energy-image img { transform: scale(1.08); }
+        .energy-image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%); }
+        .energy-icon { position: absolute; bottom: -25px; left: 2rem; width: 60px; height: 60px; background: var(--gradient-1); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; box-shadow: 0 8px 20px rgba(255,107,53,0.4); border: 4px solid white; z-index: 2; }
+        .energy-content { padding: 3rem 2rem 2rem; }
+        .energy-content h3 { font-size: var(--fs-xl); color: var(--secondary); margin-bottom: 0.8rem; font-family: 'Inter', sans-serif; font-weight: 700; }
+        .energy-content p { color: var(--text-secondary); line-height: 1.7; font-size: var(--fs-sm); margin-bottom: 1rem; }
+        .energy-features { list-style: none; margin-top: 1rem; }
+        .energy-features li { padding: 0.4rem 0; color: var(--text-secondary); font-size: var(--fs-sm); display: flex; align-items: center; gap: 0.5rem; }
+        .energy-features li i { color: var(--primary); font-size: 0.8rem; }
+
+        .reserves-section { background: var(--dark); color: white; }
+        .reserves-section .section-title { color: white; }
+        .reserves-section .section-subtitle { color: rgba(255,255,255,0.7); }
+        .reserves-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .reserves-text h3 { font-size: var(--fs-2xl); margin-bottom: 1.5rem; }
+        .reserves-text h3 span { color: var(--primary); }
+        .reserves-text p { color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 1rem; font-size: var(--fs-base); }
+        .reserves-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+        .reserve-stat { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .reserve-stat .value { font-size: var(--fs-2xl); font-weight: 800; color: var(--primary); font-family: 'Inter', sans-serif; }
+        .reserve-stat .label { font-size: var(--fs-sm); color: rgba(255,255,255,0.7); margin-top: 0.3rem; }
+        .reserves-image { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-xl); height: 450px; }
+        .reserves-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .cta-section { background: var(--gradient-1); color: white; text-align: center; padding: 5rem 0; }
+        .cta-section h2 { font-size: var(--fs-3xl); margin-bottom: 1rem; }
+        .cta-section p { font-size: var(--fs-md); margin-bottom: 2rem; opacity: 0.95; }
+        .btn { padding: 1rem 2rem; border-radius: 50px; font-weight: 600; font-size: var(--fs-sm); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition); cursor: pointer; border: none; font-family: inherit; min-height: 48px; }
+        .btn-white { background: white; color: var(--primary); }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .btn-outline-white { background: transparent; color: white; border: 2px solid white; }
+        .btn-outline-white:hover { background: white; color: var(--primary); }
+
+        footer { background: var(--darker); color: white; padding: 5rem 0 2rem; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 3rem; }
+        .footer-section h3 { font-size: var(--fs-base); margin-bottom: 1.5rem; color: var(--primary); font-family: 'Inter', sans-serif; font-weight: 700; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.6); line-height: 2.2; transition: var(--transition); display: block; font-size: var(--fs-sm); }
+        .footer-section a:hover { color: var(--primary); padding-left: 5px; }
+        .social-links { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .social-links a:hover { background: var(--primary); transform: translateY(-3px); padding-left: 0; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); font-size: var(--fs-xs); }
+
+        @media (max-width: 1024px) {
+            .top-header { flex-direction: column; gap: 0.75rem; padding: 0.6rem 1.5rem; }
+            .top-header-left, .top-header-right { width: 100%; justify-content: center; }
+            .navbar { top: 0; }
+            .nav-container { padding: 0 2rem; }
+            .container { padding: 0 2rem; }
+            .page-hero-content { padding: 5rem 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .energy-intro, .reserves-content { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: white; flex-direction: column; padding: 5rem 2rem 2rem; gap: 1.5rem; box-shadow: var(--shadow-xl); transition: var(--transition); align-items: flex-start; z-index: 999; }
+            .nav-links.active { right: 0; }
+            .nav-links a { color: var(--secondary) !important; width: 100%; }
+            .nav-cta { width: 100%; text-align: center; justify-content: center; }
+            .mobile-toggle { display: flex; }
+            .mobile-toggle.active span { background: var(--secondary); }
+            .page-hero { min-height: 400px; margin-top: 0; }
+            .page-hero h1 { font-size: var(--fs-2xl); }
+            .section-title { font-size: var(--fs-2xl); }
+            section { padding: 4rem 0; }
+            .container { padding: 0 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .reserves-stats { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+        }
+        @media (max-width: 480px) {
+            .top-header { padding: 0.5rem 1rem; }
+            .top-header-left a span { display: none; }
+            .nav-container { padding: 0 1rem; }
+            .container { padding: 0 1rem; }
+            .page-hero-content { padding: 4rem 1rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }            /* Main Navigation */
+        .navbar {
+            position: fixed;
+            top: 62px;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(255,107,53,0.4);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-links > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-links > li > a:hover::after,
+        .nav-links > li > a.active::after {
+            width: 100%;
+        }
+
+        .nav-links > li > a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links > li > a.active {
+            color: var(--primary);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 260px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 1001;
+            padding: 0.75rem 0;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255,107,53,0.1);
+        }
+
+        .nav-links > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.5rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background: rgba(255,107,53,0.08);
+            color: var(--primary);
+            padding-left: 1.75rem;
+        }
+
+        .dropdown a i {
+            color: var(--primary);
+            font-size: 0.95rem;
+            width: 20px;
+        }
+
+        .nav-cta {
+            background: var(--gradient-1);
+            color: white !important;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.5);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-top: 180px;
+            padding: 4rem 3rem;
+            background: white;
+            min-height: calc(100vh - 180px);
+            border-radius: 24px;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .top-header {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 1.5rem;
+            }
+
+            .top-header-left, .top-header-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .navbar {
+                top: 0;
+            }
+
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 0;
+                box-shadow: var(--shadow-xl);
+                transition: var(--transition);
+                align-items: stretch;
+                z-index: 999;
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links > li {
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links > li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links > li > a {
+                color: var(--text-primary);
+                width: 100%;
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.05rem;
+                font-weight: 600;
+            }
+
+            .nav-links > li > a::after {
+                display: none;
+            }
+
+            .nav-links > li > a:hover {
+                color: var(--primary);
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                margin-top: 1rem;
+                padding: 1rem;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin: 0;
+                display: none;
+                background: var(--light);
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                padding: 0.5rem 0;
+            }
+
+            .nav-links > li.active .dropdown {
+                display: block;
+            }
+
+            .dropdown a {
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+                background: var(--primary);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+                background: var(--primary);
+            }
+
+            .main-content {
+                margin-top: 140px;
+                padding: 2.5rem 1.5rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                border-radius: 16px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-header {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .top-header-left {
+                gap: 1.25rem;
+            }
+
+            .top-header-left a span {
+                display: none;
+            }
+
+            .top-header-left a i {
+                font-size: 1rem;
+            }
+
+            .top-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .logo-text .brand {
+                font-size: 1.3rem;
+            }
+
+            .logo-text .tagline {
+                font-size: 0.7rem;
+            }
+
+            .main-content {
+                margin-top: 130px;
+                padding: 2rem 1rem;
+                margin-left: 0.75rem;
+                margin-right: 0.75rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+   
+
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="top-header-left">
+            <a href="mailto:info@orangelinks.com"><i class="fas fa-envelope"></i> <span>info@orangelinks.com</span></a>
+            <a href="tel:+2348118702414"><i class="fas fa-phone"></i> <span>+2348118702414</span></a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i> <span>Abuja, Nigeria</span></a>
+        </div>
+        <div class="top-header-right">
+            
+            
+           <marquee>Welcome to Orange Links General Trading (OL) </marquee>
+        </div>
+    </div>
+
+   <!-- Main Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class=""><img src="https://orangelinks.com/img/logo.png"></div>
+                <div class="logo-text">
+                    <a href="index.html" id="logo">
+    </a>
+
+                                    </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="consultancy.html">Consultancy Services</a></li>
+                
+                <!-- Products Dropdown -->
+                <li class="dropdown-parent">
+                    <a href="products.html" onclick="toggleDropdown(event)">
+                        Products 
+                        <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 0.25rem;"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="agriculture.html">
+                            <i class="fas fa-seedling"></i>
+                            <span>Agricultural Products</span>
+                        </a>
+                        <a href="minerals.html">
+                            <i class="fas fa-gem"></i>
+                            <span>Minerals</span>
+                        </a>
+                        <a href="fertilizers.html">
+                            <i class="fas fa-flask"></i>
+                            <span>Fertilizers</span>
+                        </a>
+                        <a href="energy.html">
+                            <i class="fas fa-bolt"></i>
+                            <span>Energy Products</span>
+                        </a>
+                        <a href="shipping.html">
+                            <i class="fas fa-ship"></i>
+                            <span>Shipping</span>
+                        </a>
+                    </div>
+                </li>
+                
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i>
+                <a href="products.html">Products</a> <i class="fas fa-chevron-right"></i>
+                <span>Energy</span>
+            </div>
+            <h1>Energy <span>Products</span></h1>
+            <p>Trading over 2.5 million tonnes of gasoline and gas oil annually. Owners of one of West Africa's largest coal reserves exceeding 1 billion tonnes.</p>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">2.5M+</div>
+                    <div class="label">Tonnes Traded Annually</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">1B+</div>
+                    <div class="label">Coal Reserves (Tonnes)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">150+</div>
+                    <div class="label">Sq. Km Reserve Area</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">24/7</div>
+                    <div class="label">Global Operations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="energy-intro">
+                <div class="energy-intro-image">
+                    <img src="img/energy2.jpg" alt="Energy Products">
+                </div>
+                <div class="energy-intro-text">
+                    <span class="section-label">Our Energy Division</span>
+                    <h2>Powering Global <span>Energy Needs</span></h2>
+                    <p>Orange Links trades several million tonnes of gasoline and gas oil each year. Our long-standing contracts with governments in West Africa, the presence of our sister concern in Rotterdam and freighting through our own tankers provide us with the opportunity to generate economies of scale that can be passed on to our clients.</p>
+                    <p>We have acquired several coal assets to form one of the largest coal reserves in West Africa. The coal quality is confirmed to be good for domestic, industrial, and electricity generation demand for both local and the international markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Products</span>
+                <h2 class="section-title">Energy Portfolio</h2>
+                <p class="section-subtitle">Comprehensive energy solutions for global markets</p>
+            </div>
+            <div class="products-grid">
+                <div class="energy-card">
+                    <div class="energy-image">
+                        <img src="img/coal.jpg" alt="Coal">
+                        <div class="energy-image-overlay"></div>
+                        <div class="energy-icon"><i class="fas fa-mountain"></i></div>
+                    </div>
+                    <div class="energy-content">
+                        <h3>Coal</h3>
+                        <p>One of the largest coal reserves in West Africa with quality suitable for domestic, industrial, and electricity generation.</p>
+                        <ul class="energy-features">
+                            <li><i class="fas fa-check"></i> 1B+ tonnes estimated reserves</li>
+                            <li><i class="fas fa-check"></i> 150+ sq. km reserve area</li>
+                            <li><i class="fas fa-check"></i> Industrial grade quality</li>
+                            <li><i class="fas fa-check"></i> Electricity generation suitable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="energy-card">
+                    <div class="energy-image">
+                        <img src="img/Gasoline.jpg" alt="Gasoline">
+                        <div class="energy-image-overlay"></div>
+                        <div class="energy-icon"><i class="fas fa-gas-pump"></i></div>
+                    </div>
+                    <div class="energy-content">
+                        <h3>Gasoline</h3>
+                        <p>Premium quality gasoline traded in large volumes with long-standing government contracts across West Africa.</p>
+                        <ul class="energy-features">
+                            <li><i class="fas fa-check"></i> High octane ratings</li>
+                            <li><i class="fas fa-check"></i> Government contracts</li>
+                            <li><i class="fas fa-check"></i> Rotterdam hub presence</li>
+                            <li><i class="fas fa-check"></i> Own tanker fleet</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="energy-card">
+                    <div class="energy-image">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800" alt="Gas Oil">
+                        <div class="energy-image-overlay"></div>
+                        <div class="energy-icon"><i class="fas fa-oil-can"></i></div>
+                    </div>
+                    <div class="energy-content">
+                        <h3>Gas Oil</h3>
+                        <p>High-quality gas oil for industrial and commercial applications with reliable supply chains and competitive pricing.</p>
+                        <ul class="energy-features">
+                            <li><i class="fas fa-check"></i> Industrial grade quality</li>
+                            <li><i class="fas fa-check"></i> Commercial applications</li>
+                            <li><i class="fas fa-check"></i> Economies of scale</li>
+                            <li><i class="fas fa-check"></i> Global delivery network</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reserves-section">
+        <div class="container">
+            <div class="reserves-content">
+                <div class="reserves-text">
+                    <span class="section-label" style="background: rgba(255,107,53,0.2);">Coal Reserves</span>
+                    <h3>West Africa's Largest <span>Coal Reserve</span></h3>
+                    <p>Orange Links has acquired several coal assets to form one of the largest coal reserves in West Africa. The envisioned resource base in an area of over 150 square kilometers is estimated to be well in excess of 1 billion tonnes even though at exploratory level.</p>
+                    <p>The coal quality is confirmed to be good for domestic, industrial, and electricity generation demand for both local and the international markets.</p>
+                    <div class="reserves-stats">
+                        <div class="reserve-stat">
+                            <div class="value">1B+</div>
+                            <div class="label">Tonnes Reserves</div>
+                        </div>
+                        <div class="reserve-stat">
+                            <div class="value">150+</div>
+                            <div class="label">Sq. Km Area</div>
+                        </div>
+                        <div class="reserve-stat">
+                            <div class="value">W. Africa</div>
+                            <div class="label">Location</div>
+                        </div>
+                        <div class="reserve-stat">
+                            <div class="value">High</div>
+                            <div class="label">Quality Grade</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reserves-image">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800" alt="Coal Reserves">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Energy Supply?</h2>
+            <p>Contact our team for pricing, availability, and supply arrangements</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-white">Request a Quote <i class="fas fa-arrow-right"></i></a>
+                <a href="products.html" class="btn btn-outline-white">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+       <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Orange Links</h3>
+                    <p>We pride ourselves in the relationships we have built in our local markets. These relationships have helped us access markets in Bangladesh, Cambodia, India, Myanmar, Nepal, Sri Lanka and West Africa which form our core markets.</p>
+                   
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="consultancy.html">Consultancy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="agriculture.html">Agriculture</a>
+                    <a href="fertilizers.html">Fertilizers</a>
+                    <a href="energy.html">Energy</a>
+                    <a href="shipping.html">Shipping</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +234 705 418 3172</p>
+                    <p><i class="fas fa-envelope"></i> info@orangelinks.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Orange Links General Trading LLC. All rights reserved. | Website by: <a href="https://spreadweb.net" target="_blank">spreadweb</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.getElementById('mobileToggle');
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.getElementById('mobileToggle').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }, 250);
+        });
+    </script>
+</body>
+</html>
