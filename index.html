@@ -1010,6 +1010,100 @@
             opacity: 1;
             visibility: visible;
         }
+
+
+
+
+
+/* Mobile Responsive - Top Header Fix */
+@media (max-width: 1024px) {
+    .top-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        position: relative;
+    }
+
+    .top-header-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .top-header-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .top-header-left a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .top-header-left a span {
+        display: inline;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .top-social {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .top-cta {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-header {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .top-header-left {
+        gap: 1rem;
+    }
+
+    .top-header-left a {
+        font-size: 0.8rem;
+    }
+
+    .top-header-left a span {
+        display: none;
+    }
+
+    .top-header-left a i {
+        font-size: 1.1rem;
+    }
+
+    .top-social a {
+        font-size: 1.1rem;
+    }
+
+    .top-cta {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+
+            
     </style>
 </head>
 <body>
